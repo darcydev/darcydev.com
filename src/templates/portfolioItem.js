@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import Img from 'gatsby-image';
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Img from "gatsby-image";
+import Zoom from "react-reveal/Zoom";
 
-import ButtonLink from '../components/UI/buttonLink';
+import ButtonLink from "../components/UI/buttonLink";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,13 +18,13 @@ const Wrapper = styled.div`
     margin-bottom: 12rem;
   }
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     &:not(:last-child) {
       margin-bottom: 8rem;
     }
   }
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     &:not(:last-child) {
       margin-bottom: 6rem;
     }
@@ -35,7 +36,7 @@ const ContentWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     flex-direction: column !important;
   }
 `;
@@ -50,17 +51,17 @@ const Title = styled.h1`
   color: var(--white);
   transition: color 0.2s ease-out;
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     margin-bottom: 2rem;
   }
 
-  @media ${props => props.theme.mediaQueries.smallest} {
+  @media ${(props) => props.theme.mediaQueries.smallest} {
     font-size: 1.8rem;
     margin-bottom: 1rem;
   }
 
   &:after {
-    content: '';
+    content: "";
     z-index: -1;
     position: absolute;
     top: 0;
@@ -78,7 +79,7 @@ const Content = styled.div`
   flex-direction: column;
   margin: 0 2rem;
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     order: 2;
     align-items: center;
     text-align: center;
@@ -105,7 +106,7 @@ const Text = styled.div`
     }
   }
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     font-size: 1.8rem;
   }
 `;
@@ -119,7 +120,7 @@ const Stack = styled.p`
   font-size: 1.1rem;
   transition: color 0.2s ease-out;
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     font-size: 1.2rem;
     margin-bottom: 3rem;
   }
@@ -132,7 +133,7 @@ const ButtonsWrapper = styled.div`
     margin-right: 3rem;
   }
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     justify-content: space-around;
     width: 100%;
 
@@ -151,7 +152,7 @@ const Image = styled(Img)`
   margin: 0 2rem;
   flex: 1 1 50%;
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     order: 1;
     width: 100%;
     margin: 0rem;
@@ -162,24 +163,26 @@ const PortfolioItem = ({ portfolio }) => {
   const { title, live, source, stack, image } = portfolio.frontmatter;
   return (
     <Wrapper>
-      <Title>{title}</Title>
-      <ContentWrapper>
-        <Content>
-          <Text dangerouslySetInnerHTML={{ __html: portfolio.html }} />
-          <Stack>{stack}</Stack>
-          <ButtonsWrapper>
-            <ButtonLink target="_blank" solid href={live} rel="noreferrer">
-              <StyledIcon icon={faLink} />
-              Visit
-            </ButtonLink>
-            <ButtonLink target="_blank" href={source} rel="noreferrer">
-              <StyledIcon icon={faGithub} />
-              Source
-            </ButtonLink>
-          </ButtonsWrapper>
-        </Content>
-        <Image fluid={image.childImageSharp.fluid} />
-      </ContentWrapper>
+      <Zoom>
+        <Title>{title}</Title>
+        <ContentWrapper>
+          <Content>
+            <Text dangerouslySetInnerHTML={{ __html: portfolio.html }} />
+            <Stack>{stack}</Stack>
+            <ButtonsWrapper>
+              <ButtonLink target="_blank" solid href={live} rel="noreferrer">
+                <StyledIcon icon={faLink} />
+                Visit
+              </ButtonLink>
+              <ButtonLink target="_blank" href={source} rel="noreferrer">
+                <StyledIcon icon={faGithub} />
+                Source
+              </ButtonLink>
+            </ButtonsWrapper>
+          </Content>
+          <Image fluid={image.childImageSharp.fluid} />
+        </ContentWrapper>
+      </Zoom>
     </Wrapper>
   );
 };

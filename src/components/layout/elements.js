@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Contained = styled.div`
   max-width: 124rem;
@@ -7,11 +7,11 @@ export const Contained = styled.div`
   margin: 0 auto;
   width: 100%;
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     padding: 0 3rem;
   }
 
-  @media ${props => props.theme.mediaQueries.smaller} {
+  @media ${(props) => props.theme.mediaQueries.smaller} {
     padding: 0 2rem;
   }
 `;
@@ -27,16 +27,16 @@ export const StyledSection = styled.section`
          width: 100%;
          min-height: ${({ fullHeight }) =>
            fullHeight
-             ? '100vh'
-             : 'auto'}; /* Fallback for browsers that do not support Custom Properties */
+             ? "100vh"
+             : "auto"}; /* Fallback for browsers that do not support Custom Properties */
          min-height: ${({ fullHeight }) =>
            fullHeight
-             ? 'calc(var(--vh, 1vh) * 100)'
-             : 'auto'}; /* Fallback for browsers that do not support Custom Properties */
+             ? "calc(var(--vh, 1vh) * 100)"
+             : "auto"}; /* Fallback for browsers that do not support Custom Properties */
          /* height: ${({ fullHeight }) =>
-           fullHeight ? 'calc(var(--vh, 1vh) * 100)' : '100%'}; */
+           fullHeight ? "calc(var(--vh, 1vh) * 100)" : "100%"}; */
          /* min-height: ${({ fullHeight }) =>
-           fullHeight ? '100vh' : '100%'}; */
+           fullHeight ? "100vh" : "100%"}; */
        `;
 
 export const Wrapper = styled.div`

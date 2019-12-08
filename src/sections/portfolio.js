@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 
-import Heading from '../components/UI/heading';
+import Heading from "../components/UI/heading";
 import {
   Contained,
   StyledSection,
-  Wrapper,
-} from '../components/layout/elements';
-import PortfolioItem from '../templates/portfolioItem';
+  Wrapper
+} from "../components/layout/elements";
+import PortfolioItem from "../templates/portfolioItem";
 
 const PortfolioWrapper = styled.div`
   width: 100%;
@@ -63,7 +63,7 @@ const Portfolio = () => {
             subtitle={`Check <span>what</span> I've been doing <span>lately</span>`}
           />
           <PortfolioWrapper>
-            {items.edges.map(item => (
+            {items.edges.map((item) => (
               <PortfolioItem
                 key={item.node.id}
                 portfolio={item.node.childMarkdownRemark}
