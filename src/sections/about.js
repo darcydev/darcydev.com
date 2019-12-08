@@ -15,6 +15,7 @@ import {
 } from "../components/layout/elements";
 import ButtonLink from "../components/UI/buttonLink";
 import WordsFading from "../components/UI/wordsFading";
+import HighlightedText from "../components/UI/HighlightedText";
 
 const AboutText = styled.div`
   color: var(--text);
@@ -25,28 +26,6 @@ const AboutText = styled.div`
   margin: 0 auto;
   text-align: center;
   transition: color 0.2s ease-out;
-
-  span {
-    position: relative;
-    font-style: italic;
-    color: var(--white);
-    font-weight: 800;
-    display: inline-block;
-    word-break: break-word;
-    white-space: normal;
-
-    &:after {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      transform: rotate(-1deg);
-      background: var(--primary);
-    }
-  }
 
   & em {
     color: var(--text-highlight);
@@ -76,28 +55,6 @@ const AboutText = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 100%;
-  }
-`;
-
-const CustomSpan = styled.span`
-  position: relative;
-  font-style: italic;
-  color: var(--white);
-  font-weight: 800;
-  display: inline-block;
-  word-break: break-word;
-  white-space: normal;
-
-  &:after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    transform: rotate(-1deg);
-    background: var(--primary);
   }
 `;
 
@@ -159,12 +116,6 @@ const ButtonsWrapper = styled.div`
   }
 `;
 
-// Takes custom components from markdown, and maps to my custom components
-const renderCustom = new rehypeReact({
-  createElement: React.createElement,
-  components: { "scroll-link": ScrollLink, span: CustomSpan }
-}).Compiler;
-
 const About = () => {
   const { aboutMe, siteUrl } = useStaticQuery(graphql`
     query {
@@ -198,29 +149,29 @@ const About = () => {
           </Zoom>
           <Zoom>
             <AboutText>
-              {renderCustom(aboutMe.childMarkdownRemark.htmlAst)}
-              I’m <span>Darcy</span>, a 29 years' old self-taught
-              <span> developer</span> from Sydney, Australia. After my
-              graduating from Law School, I pursued a career in
-              <span>corporate law</span> in London, United Kingdom. After two
+              I’m <HighlightedText text="Darcy" />, a 29 years' old{" "}
+              <HighlightedText text="developer" /> from Sydney, Australia. After
+              my graduating from Law School, I pursued a career in{" "}
+              <HighlightedText text="corporate law" /> in London, UK. After two
               years as a lawyer, I felt stuck and decided to undertake a
-              three-month secondment with an NGO in India working on technology
+              secondment through work with an NGO in India working on technology
               and app solutions for off-grid solar energy. The opportunities
               exposed me to the power of technology to affect significant and
               positive change in the community. I decided that it was time for a
-              change, so I started to
-              <span>study JavaScript</span>. In November 2018, I started working
-              as a <span>freelance developer</span>, with
-              <span>2+ years' of commercial experience</span> I have focused on
-              front-end applications, but have also built several full-stack and
-              back-end applications! I have also done a bunch of personal
-              projects. I am always seeking to
-              <WordsFading words={["do", "create", "learn"]} /> more and am
-              creative, super curios, passionate and committed to development
-              and my clients. Away from the desk, I enjoy surfing and stand-up
-              comedy.
+              change, so I started to{" "}
+              <HighlightedText text="study JavaScript" /> and within four months
+              was working as a <HighlightedText text="freelance developer" />.
+              Now, with over{" "}
+              <HighlightedText text="2+ years of commercial experience" /> as a
+              developer, I have have focused on front-end applications, but have
+              also built several full-stack and back-end applications! I have
+              also done a bunch of personal projects. I am always seeking to{" "}
+              <WordsFading words={["do", "create", "learn", "be"]} /> more.
+              <br />
+              <br />
+              Away from the desk, I enjoy surfing and stand-up comedy.
               <StackTitle>
-                My current <CustomSpan>tech stack</CustomSpan> is:
+                My current <HighlightedText text="current stack" /> is:
               </StackTitle>
               <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
             </AboutText>
