@@ -2,8 +2,9 @@ import React from "react";
 import rehypeReact from "rehype-react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { graphql, useStaticQuery } from "gatsby";
+import Zoom from "react-reveal/Zoom";
 
 import ScrollLink from "../components/utils/scrollLink";
 import Heading from "../components/UI/heading";
@@ -13,6 +14,7 @@ import {
   Wrapper
 } from "../components/layout/elements";
 import ButtonLink from "../components/UI/buttonLink";
+import WordsFading from "../components/UI/wordsFading";
 
 const AboutText = styled.div`
   color: var(--text);
@@ -23,6 +25,28 @@ const AboutText = styled.div`
   margin: 0 auto;
   text-align: center;
   transition: color 0.2s ease-out;
+
+  span {
+    position: relative;
+    font-style: italic;
+    color: var(--white);
+    font-weight: 800;
+    display: inline-block;
+    word-break: break-word;
+    white-space: normal;
+
+    &:after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      transform: rotate(-1deg);
+      background: var(--primary);
+    }
+  }
 
   & em {
     color: var(--text-highlight);
@@ -59,7 +83,7 @@ const CustomSpan = styled.span`
   position: relative;
   font-style: italic;
   color: var(--white);
-  font-weight: 600;
+  font-weight: 800;
   display: inline-block;
   word-break: break-word;
   white-space: normal;
@@ -72,7 +96,7 @@ const CustomSpan = styled.span`
     left: 0;
     height: 100%;
     width: 100%;
-    transform: rotate(-2deg);
+    transform: rotate(-1deg);
     background: var(--primary);
   }
 `;
@@ -166,41 +190,54 @@ const About = () => {
     <StyledSection id="about-me">
       <Contained>
         <Wrapper>
-          <Heading
-            title="About me"
-            subtitle="If you’re <span>wondering</span> who <span>I am</span>…"
-          />
-          <AboutText>
-            {renderCustom(aboutMe.childMarkdownRemark.htmlAst)}
-            <StackTitle>
-              My current <CustomSpan>stack</CustomSpan> of
-              <CustomSpan>languages/technologies</CustomSpan> is:
-            </StackTitle>
-            <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
-          </AboutText>
-          <ButtonsWrapper>
-            <ButtonLink
-              solid
-              target="_blank"
-              rel="noreferrer"
-              href={`${siteUrl.siteMetadata.siteUrl}/${
-                aboutMe.childMarkdownRemark.frontmatter.creativeCurriculum
-              }`}
-            >
-              <StyledIcon icon={faPaperPlane} />
-              Resume
-            </ButtonLink>
-            <ButtonLink
-              target="_blank"
-              rel="noreferrer"
-              href={`${siteUrl.siteMetadata.siteUrl}/${
-                aboutMe.childMarkdownRemark.frontmatter.curriculum
-              }`}
-            >
-              <StyledIcon icon={faFile} />
-              Curriculum
-            </ButtonLink>
-          </ButtonsWrapper>
+          <Zoom>
+            <Heading
+              title="About me"
+              subtitle="If you’re <span>wondering</span> who <span>I am</span>…"
+            />
+          </Zoom>
+          <Zoom>
+            <AboutText>
+              {renderCustom(aboutMe.childMarkdownRemark.htmlAst)}
+              I’m <span>Darcy</span>, a 29 years' old self-taught
+              <span> developer</span> from Sydney, Australia. After my
+              graduating from Law School, I pursued a career in
+              <span>corporate law</span> in London, United Kingdom. After two
+              years as a lawyer, I felt stuck and decided to undertake a
+              three-month secondment with an NGO in India working on technology
+              and app solutions for off-grid solar energy. The opportunities
+              exposed me to the power of technology to affect significant and
+              positive change in the community. I decided that it was time for a
+              change, so I started to
+              <span>study JavaScript</span>. In November 2018, I started working
+              as a <span>freelance developer</span>, with
+              <span>2+ years' of commercial experience</span> I have focused on
+              front-end applications, but have also built several full-stack and
+              back-end applications! I have also done a bunch of personal
+              projects. I am always seeking to
+              <WordsFading words={["do", "create", "learn"]} /> more and am
+              creative, super curios, passionate and committed to development
+              and my clients. Away from the desk, I enjoy surfing and stand-up
+              comedy.
+              <StackTitle>
+                My current <CustomSpan>tech stack</CustomSpan> is:
+              </StackTitle>
+              <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
+            </AboutText>
+          </Zoom>
+          <Zoom>
+            <ButtonsWrapper>
+              <ButtonLink
+                solid
+                target="_blank"
+                rel="noreferrer"
+                href={`${siteUrl.siteMetadata.siteUrl}/${aboutMe.childMarkdownRemark.frontmatter.creativeCurriculum}`}
+              >
+                <StyledIcon icon={faPaperPlane} />
+                Resume
+              </ButtonLink>
+            </ButtonsWrapper>
+          </Zoom>
         </Wrapper>
       </Contained>
     </StyledSection>

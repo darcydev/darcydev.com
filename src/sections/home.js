@@ -97,16 +97,18 @@ const Home = () => {
         <Wrapper>
           <SmallWrapper>
             <Title style={TitleSpring}>
-              Hello{" "}
+              Hey{" "}
               <span role="img" aria-label="Cool hand emoji">
-                ✌🏼
+                ✌️
               </span>
               ,
               <br />
               I'm <span>Darcy Price</span>
             </Title>
             <SubTitle style={SubTitleSpring}>
-              A <WordsFading /> Front-end developer
+              and I am
+              <WordsFading words={["freelance", "self-taught", "polygot"]} />
+              developer
             </SubTitle>
             <Link to="about-me" spy={true} smooth={true}>
               <Button style={ButtonSpring}>About me</Button>

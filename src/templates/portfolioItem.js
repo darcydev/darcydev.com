@@ -8,6 +8,35 @@ import Zoom from "react-reveal/Zoom";
 
 import ButtonLink from "../components/UI/buttonLink";
 
+export default function PortfolioItem({ portfolio }) {
+  const { title, live, source, stack, image } = portfolio.frontmatter;
+
+  return (
+    <Wrapper>
+      <Zoom>
+        <Title>{title}</Title>
+        <ContentWrapper>
+          <Content>
+            <Text dangerouslySetInnerHTML={{ __html: portfolio.html }} />
+            <Stack>{stack}</Stack>
+            <ButtonsWrapper>
+              <ButtonLink target="_blank" solid href={live} rel="noreferrer">
+                <StyledIcon icon={faLink} />
+                Visit
+              </ButtonLink>
+              <ButtonLink target="_blank" href={source} rel="noreferrer">
+                <StyledIcon icon={faGithub} />
+                Source
+              </ButtonLink>
+            </ButtonsWrapper>
+          </Content>
+          <Image fluid={image.childImageSharp.fluid} />
+        </ContentWrapper>
+      </Zoom>
+    </Wrapper>
+  );
+}
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,7 +97,6 @@ const Title = styled.h1`
     left: 0;
     height: 100%;
     width: 100%;
-    transform: rotate(-2deg);
     background: var(--primary);
   }
 `;
@@ -87,7 +115,7 @@ const Content = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--text);
   font-weight: 400;
   margin: 0;
@@ -104,10 +132,6 @@ const Text = styled.div`
     &:hover {
       color: var(--primary);
     }
-  }
-
-  @media ${(props) => props.theme.mediaQueries.small} {
-    font-size: 1.8rem;
   }
 `;
 
@@ -151,6 +175,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const Image = styled(Img)`
   margin: 0 2rem;
   flex: 1 1 50%;
+  border-radius: 50px;
 
   @media ${(props) => props.theme.mediaQueries.medium} {
     order: 1;
@@ -158,33 +183,3 @@ const Image = styled(Img)`
     margin: 0rem;
   }
 `;
-
-const PortfolioItem = ({ portfolio }) => {
-  const { title, live, source, stack, image } = portfolio.frontmatter;
-  return (
-    <Wrapper>
-      <Zoom>
-        <Title>{title}</Title>
-        <ContentWrapper>
-          <Content>
-            <Text dangerouslySetInnerHTML={{ __html: portfolio.html }} />
-            <Stack>{stack}</Stack>
-            <ButtonsWrapper>
-              <ButtonLink target="_blank" solid href={live} rel="noreferrer">
-                <StyledIcon icon={faLink} />
-                Visit
-              </ButtonLink>
-              <ButtonLink target="_blank" href={source} rel="noreferrer">
-                <StyledIcon icon={faGithub} />
-                Source
-              </ButtonLink>
-            </ButtonsWrapper>
-          </Content>
-          <Image fluid={image.childImageSharp.fluid} />
-        </ContentWrapper>
-      </Zoom>
-    </Wrapper>
-  );
-};
-
-export default PortfolioItem;

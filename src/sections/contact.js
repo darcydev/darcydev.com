@@ -1,33 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import useDarkMode from 'use-dark-mode';
+import React from "react";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import useDarkMode from "use-dark-mode";
 
 import {
   Contained,
   StyledSection,
-  Wrapper,
-} from '../components/layout/elements';
-import Heading from '../components/UI/heading';
-import Social from '../components/UI/social';
-
-const LogoImage = styled(Img)`
-  width: 15%;
-  margin-bottom: 1.5rem;
-
-  @media ${props => props.theme.mediaQueries.medium} {
-    width: 25%;
-  }
-`;
-
-const CopyRight = styled.p`
-  font-weight: 700;
-  margin: 0;
-  font-size: 1rem;
-  color: var(--text-highlight);
-  text-transform: uppercase;
-`;
+  Wrapper
+} from "../components/layout/elements";
+import Heading from "../components/UI/heading";
+import Social from "../components/UI/social";
 
 const Contact = () => {
   const { value: darkMode } = useDarkMode(false);
@@ -50,6 +33,12 @@ const Contact = () => {
     }
   `);
 
+  const LOGO_MARKUP = darkMode ? (
+    <LogoImage fluid={lightLogo.childImageSharp.fluid} />
+  ) : (
+    <LogoImage fluid={darkLogo.childImageSharp.fluid} />
+  );
+
   return (
     <StyledSection id="contact">
       <Contained>
@@ -59,16 +48,29 @@ const Contact = () => {
             subtitle="If you want to <span>talk</span>, you can <span>find me</span> at:"
           />
           <Social />
-          {darkMode ? (
-            <LogoImage fluid={lightLogo.childImageSharp.fluid} />
-          ) : (
-            <LogoImage fluid={darkLogo.childImageSharp.fluid} />
-          )}
+          {LOGO_MARKUP}
           <CopyRight>Copyright © {new Date().getFullYear()}, Fidalgo</CopyRight>
         </Wrapper>
       </Contained>
     </StyledSection>
   );
 };
+
+const LogoImage = styled(Img)`
+  width: 15%;
+  margin-bottom: 1.5rem;
+
+  @media ${(props) => props.theme.mediaQueries.medium} {
+    width: 25%;
+  }
+`;
+
+const CopyRight = styled.p`
+  font-weight: 700;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-highlight);
+  text-transform: uppercase;
+`;
 
 export default Contact;
