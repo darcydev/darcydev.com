@@ -3,7 +3,7 @@ module.exports = {
     title: `Darcy | Developer`,
     description: `I’m Darcy, a 28 years' old self-taught developer.`,
     author: `Darcy`,
-    siteUrl: "https://fidalgodev.com",
+    siteUrl: "https://darcyeprice.com",
     social: {
       twitter: "darcydev",
       instagram: "darcydev",
@@ -72,8 +72,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Fidalgo | Front-end Developer`,
-        short_name: `Fidalgo`,
+        name: `Darcy | Developer`,
+        short_name: `Darcy`,
         icon: `src/images/icon.png`,
         start_url: `/`,
         background_color: `#212121`,

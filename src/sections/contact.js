@@ -49,7 +49,9 @@ const Contact = () => {
           />
           <Social />
           {LOGO_MARKUP}
-          <CopyRight>Copyright © {new Date().getFullYear()}, Fidalgo</CopyRight>
+          <CopyRight>
+            Copyright © {new Date().getFullYear()}, Darcy Price
+          </CopyRight>
         </Wrapper>
       </Contained>
     </StyledSection>
