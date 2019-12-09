@@ -175,7 +175,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const Image = styled(Img)`
   margin: 0 2rem;
   flex: 1 1 50%;
-  border-radius: 50px;
+  border-radius: 10px;
 
   @media ${(props) => props.theme.mediaQueries.medium} {
     order: 1;

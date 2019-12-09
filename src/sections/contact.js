@@ -16,14 +16,14 @@ const Contact = () => {
   const { value: darkMode } = useDarkMode(false);
   const { darkLogo, lightLogo } = useStaticQuery(graphql`
     query {
-      darkLogo: file(relativePath: { eq: "logo/logovertical_black.png" }) {
+      darkLogo: file(relativePath: { eq: "logo/logo_dark.png" }) {
         childImageSharp {
           fluid(maxWidth: 250, quality: 80) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
-      lightLogo: file(relativePath: { eq: "logo/logovertical_white.png" }) {
+      lightLogo: file(relativePath: { eq: "logo/logo_light.png" }) {
         childImageSharp {
           fluid(maxWidth: 250, quality: 80) {
             ...GatsbyImageSharpFluid_tracedSVG

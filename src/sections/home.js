@@ -103,7 +103,7 @@ const Home = () => {
               </span>
               ,
               <br />
-              I'm <span>Darcy Price</span>
+              I'm <span>Darcy</span>
             </Title>
             <SubTitle style={SubTitleSpring}>
               and I am

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
-import { Link } from 'react-scroll';
-import { Link as GatsbyLink } from 'gatsby';
-import Img from 'gatsby-image';
-import useDarkMode from 'use-dark-mode';
-import { useTransition, animated } from 'react-spring';
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import { Link } from "react-scroll";
+import { Link as GatsbyLink } from "gatsby";
+import Img from "gatsby-image";
+import useDarkMode from "use-dark-mode";
+import { useTransition, animated } from "react-spring";
 
-import ScrollToTop from '../UI/scrollToTop';
+import ScrollToTop from "../UI/scrollToTop";
 
 const StyledLink = styled(Link)`
   cursor: pointer;
@@ -28,7 +28,7 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
   const ScrollTopTransition = useTransition(showScrollTop, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    leave: { opacity: 0 }
   });
 
   // Logo transition based on dark or light mode
@@ -36,9 +36,9 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
   // Animation
   const LogoNavBarTransition = useTransition(darkMode, null, {
     config: { duration: 200 },
-    from: { position: 'absolute', opacity: 0 },
+    from: { position: "absolute", opacity: 0 },
     enter: { opacity: 1 },
-    leave: { opacity: 0 },
+    leave: { opacity: 0 }
   });
 
   // Query for logos
@@ -61,32 +61,23 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
     }
   `);
 
-  // Render dark or light logo
-  const renderLogo = () => {
-    return LogoNavBarTransition.map(({ item, key, props }) =>
-      item ? (
-        <animated.div key={key} style={props}>
-          <Img
-            alt="Logo Light"
-            title="Logo Light"
-            fixed={lightLogo.childImageSharp.fixed}
-          />
-        </animated.div>
-      ) : (
-        <animated.div key={key} style={props}>
-          <Img
-            alt="Logo Dark"
-            title="Logo Dark"
-            fixed={darkLogo.childImageSharp.fixed}
-          />
-        </animated.div>
-      )
-    );
-  };
+  const LOGO_MARKUP = darkMode ? (
+    <Img
+      alt="Logo Light"
+      title="Logo Light"
+      fixed={lightLogo.childImageSharp.fixed}
+    />
+  ) : (
+    <Img
+      alt="Logo Dark"
+      title="Logo Dark"
+      fixed={darkLogo.childImageSharp.fixed}
+    />
+  );
 
   // If is not a section from the index(no one page scroll link), render the gatsby link instead
-  return notOnePageSection ? (
-    <GatsbyStyledLink to="/#about-me">{renderLogo()}</GatsbyStyledLink>
+  const MARKUP = notOnePageSection ? (
+    <GatsbyStyledLink to="/#about-me">{LOGO_MARKUP}</GatsbyStyledLink>
   ) : (
     <>
       <StyledLink
@@ -98,7 +89,7 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
         onSetInactive={() => setShowScrollTop(true)}
         onClick={() => setMenuOpened(false)}
       >
-        {renderLogo()}
+        {LOGO_MARKUP}
       </StyledLink>
       {ScrollTopTransition.map(
         ({ item, key, props }) =>
@@ -106,6 +97,8 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
       )}
     </>
   );
+
+  return MARKUP;
 };
 
 export default LogoNavBar;
