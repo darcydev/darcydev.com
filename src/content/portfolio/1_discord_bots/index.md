@@ -1,9 +1,9 @@
 ---
 title: "Discord Bots"
-live: "https://fidalgodev.github.io/budgety/"
-source: "https://github.com/fidalgodev/budgety"
+live: undefined
+source: undefined
 stack: "NodeJS - Express - discord.js"
-image: "budgety.png"
+image: "discord_bots.jpg"
 ---
 
 Discord Bots

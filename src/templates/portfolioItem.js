@@ -11,6 +11,20 @@ import ButtonLink from "../components/UI/buttonLink";
 export default function PortfolioItem({ portfolio }) {
   const { title, live, source, stack, image } = portfolio.frontmatter;
 
+  const LIVE_BUTTON_MARKUP = (
+    <ButtonLink target="_blank" solid href={live} rel="noreferrer">
+      <StyledIcon icon={faLink} />
+      Visit
+    </ButtonLink>
+  );
+
+  const GITHUB_BUTTON_MARKUP = (
+    <ButtonLink target="_blank" href={source} rel="noreferrer">
+      <StyledIcon icon={faGithub} />
+      Source
+    </ButtonLink>
+  );
+
   return (
     <Wrapper>
       <Zoom>
@@ -20,14 +34,8 @@ export default function PortfolioItem({ portfolio }) {
             <Text dangerouslySetInnerHTML={{ __html: portfolio.html }} />
             <Stack>{stack}</Stack>
             <ButtonsWrapper>
-              <ButtonLink target="_blank" solid href={live} rel="noreferrer">
-                <StyledIcon icon={faLink} />
-                Visit
-              </ButtonLink>
-              <ButtonLink target="_blank" href={source} rel="noreferrer">
-                <StyledIcon icon={faGithub} />
-                Source
-              </ButtonLink>
+              {LIVE_BUTTON_MARKUP}
+              {GITHUB_BUTTON_MARKUP}
             </ButtonsWrapper>
           </Content>
           <Image fluid={image.childImageSharp.fluid} />
