@@ -56,7 +56,7 @@ export default function WordsFading({ words }) {
 
 const Wrapper = styled.div`
   font-weight: 600;
-  width: 130px;
+  width: 160px;
   position: relative;
   display: inline-block;
   text-align: center;
