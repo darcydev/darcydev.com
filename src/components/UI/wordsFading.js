@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { animated, useTransition, config } from "react-spring";
 
-import getTextWidth from "../../utils/getTextWidth";
+import { getTextWidth } from "../../utils/getTextWidth";
 
 export default function WordsFading({ words }) {
   const WORDS_ARRAY = [];
