@@ -43,7 +43,7 @@ export default function WordsFading({ words }) {
 
   return (
     <Wrapper>
-      <i style={{ visibility: "hidden" }}>self-taught</i>
+      <i style={{ visibility: "hidden" }}>hidden-text</i>
       {wordsTransition.map(({ item, props, key }) => (
         <animated.span key={key} style={props}>
           {item.text}
@@ -68,7 +68,7 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
-  /* @media ${(props) => props.theme.mediaQueries.large} {
+  @media ${(props) => props.theme.mediaQueries.large} {
     width: 130px;
   }
 
@@ -82,5 +82,5 @@ const Wrapper = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 90px;
-  } */
+  }
 `;
