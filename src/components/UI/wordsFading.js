@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { animated, useTransition, config } from "react-spring";
 
-import { getTextWidth } from "../../utils/getTextWidth";
+import getTextWidth from "../../utils/getTextWidth";
 
 export default function WordsFading({ words }) {
   const WORDS_ARRAY = [];
@@ -13,7 +13,7 @@ export default function WordsFading({ words }) {
   const MAX_WORD_PIXEL_LENGTH = Number.NEGATIVE_INFINITY;
 
   words.forEach((word) => {
-    const WORD_PIXEL_LENGTH = getTextWidth(word, "Montserrat", "1.8rem");
+    const WORD_PIXEL_LENGTH = getTextWidth(word, "bold 14px verdana");
     console.log(WORD_PIXEL_LENGTH);
   });
 
@@ -73,7 +73,7 @@ const Wrapper = styled.div`
 
   & span {
     text-align: center;
-    width: 100%;
+    width: 90%;
   }
 
   @media ${(props) => props.theme.mediaQueries.large} {
