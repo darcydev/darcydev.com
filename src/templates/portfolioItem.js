@@ -11,19 +11,21 @@ import ButtonLink from "../components/UI/buttonLink";
 export default function PortfolioItem({ portfolio }) {
   const { title, live, source, stack, image } = portfolio.frontmatter;
 
-  const LIVE_BUTTON_MARKUP = (
-    <ButtonLink target="_blank" solid href={live} rel="noreferrer">
-      <StyledIcon icon={faLink} />
-      Visit
-    </ButtonLink>
-  );
+  const LIVE_BUTTON_MARKUP =
+    live === "undefined" ? null : (
+      <ButtonLink target="_blank" solid href={live} rel="noreferrer">
+        <StyledIcon icon={faLink} />
+        Visit
+      </ButtonLink>
+    );
 
-  const GITHUB_BUTTON_MARKUP = (
-    <ButtonLink target="_blank" href={source} rel="noreferrer">
-      <StyledIcon icon={faGithub} />
-      Source
-    </ButtonLink>
-  );
+  const GITHUB_BUTTON_MARKUP =
+    source === "undefined" ? null : (
+      <ButtonLink target="_blank" href={source} rel="noreferrer">
+        <StyledIcon icon={faGithub} />
+        Source
+      </ButtonLink>
+    );
 
   return (
     <Wrapper>
