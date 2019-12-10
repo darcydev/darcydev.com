@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { animated, useTransition, config } from "react-spring";
 
+import getTextWidth from "../../utils/getTextWidth";
+
 export default function WordsFading({ words }) {
   const WORDS_ARRAY = [];
   words.forEach((word, i) => {
@@ -43,7 +45,6 @@ export default function WordsFading({ words }) {
 
   return (
     <Wrapper>
-      <i style={{ visibility: "hidden" }}>self-taught</i>
       {wordsTransition.map(({ item, props, key }) => (
         <animated.span key={key} style={props}>
           {item.text}
@@ -55,7 +56,7 @@ export default function WordsFading({ words }) {
 
 const Wrapper = styled.div`
   font-weight: 600;
-  width: 110px;
+  width: 130px;
   position: relative;
   display: inline-block;
   text-align: center;
@@ -68,14 +69,15 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
+  /*
   @media ${(props) => props.theme.mediaQueries.large} {
     width: 130px;
   }
-
+  
    @media ${(props) => props.theme.mediaQueries.medium} {
     width: 110px;
   }
-  /*
+  
   @media ${(props) => props.theme.mediaQueries.small} {
     width: 95px;
   }
