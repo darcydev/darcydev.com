@@ -69,10 +69,10 @@ const Wrapper = styled.div`
   }
 
   @media ${(props) => props.theme.mediaQueries.large} {
-    width: 105px;
+    width: 130px;
   }
 
-  @media ${(props) => props.theme.mediaQueries.medium} {
+/*   @media ${(props) => props.theme.mediaQueries.medium} {
     width: 100px;
   }
 
@@ -82,5 +82,5 @@ const Wrapper = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 90px;
-  }
+  } */
 `;
