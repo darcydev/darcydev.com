@@ -106,7 +106,7 @@ const Home = () => {
               I'm <span>Darcy</span>
             </Title>
             <SubTitle style={SubTitleSpring}>
-              and I am
+              and am a
               <WordsFading words={["freelance", "self-taught", "polygot"]} />
               developer
             </SubTitle>
