@@ -64,7 +64,7 @@ const Wrapper = styled.div`
 
   & span {
     text-align: center;
-    width: 100%;
+    width: 80%;
   }
 
   /* @media ${(props) => props.theme.mediaQueries.large} {
