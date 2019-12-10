@@ -72,15 +72,16 @@ const Wrapper = styled.div`
     width: 130px;
   }
 
-  @media ${(props) => props.theme.mediaQueries.medium} {
+   @media ${(props) => props.theme.mediaQueries.medium} {
     width: 110px;
   }
-
-  /* @media ${(props) => props.theme.mediaQueries.small} {
+  /*
+  @media ${(props) => props.theme.mediaQueries.small} {
     width: 95px;
   }
 
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 90px;
-  } */
+  }
+  */
 `;

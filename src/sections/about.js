@@ -166,7 +166,7 @@ const About = () => {
               developer, I have have focused on front-end applications, but have
               also built several full-stack and back-end applications! I have
               also done a bunch of personal projects. I am always seeking to{" "}
-              <WordsFading words={["do", "create", "learn", "be"]} /> more.
+              <WordsFading words={["create", "build", "learn"]} /> more.
               <br />
               <br />
               Away from the desk, I enjoy surfing and stand-up comedy.
