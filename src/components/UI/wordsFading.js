@@ -72,11 +72,11 @@ const Wrapper = styled.div`
     width: 130px;
   }
 
-/*   @media ${(props) => props.theme.mediaQueries.medium} {
-    width: 100px;
+  @media ${(props) => props.theme.mediaQueries.medium} {
+    width: 110px;
   }
 
-  @media ${(props) => props.theme.mediaQueries.small} {
+  /* @media ${(props) => props.theme.mediaQueries.small} {
     width: 95px;
   }
 
