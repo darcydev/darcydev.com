@@ -54,7 +54,7 @@ export default function WordsFading({ words }) {
 
 const Wrapper = styled.div`
   font-weight: 600;
-  width: 110px;
+  width: 160px;
   position: relative;
   display: inline-block;
   text-align: center;
@@ -64,10 +64,10 @@ const Wrapper = styled.div`
 
   & span {
     text-align: center;
-    width: 90%;
+    width: 100%;
   }
 
-  @media ${(props) => props.theme.mediaQueries.large} {
+  /* @media ${(props) => props.theme.mediaQueries.large} {
     width: 130px;
   }
 
@@ -81,5 +81,5 @@ const Wrapper = styled.div`
 
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 90px;
-  }
+  } */
 `;
