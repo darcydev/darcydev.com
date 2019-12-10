@@ -1,6 +1,6 @@
 ---
 title: "Waygook Teacher"
-live: "https://auth-w-firebase-boiler.fidalgo.dev/"
+live: undefined
 source: "https://github.com/darcyprice/Waygook-Teacher"
 stack: "PHP - SASS - JavaScript - MySQL"
 image: "waygook_teacher.png"
