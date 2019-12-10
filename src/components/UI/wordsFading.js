@@ -10,6 +10,13 @@ export default function WordsFading({ words }) {
     WORDS_ARRAY.push({ id: i, text: word });
   });
 
+  const MAX_WORD_PIXEL_LENGTH = Number.NEGATIVE_INFINITY;
+
+  words.forEach((word) => {
+    const WORD_PIXEL_LENGTH = getTextWidth(word, "Montserrat", "1.8rem");
+    console.log(WORD_PIXEL_LENGTH);
+  });
+
   // subtitle keywords loop
   const [index, setIndex] = useState(0);
   const wordsTransition = useTransition(WORDS_ARRAY[index], (span) => span.id, {
