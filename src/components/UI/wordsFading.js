@@ -2,19 +2,10 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { animated, useTransition, config } from "react-spring";
 
-import getTextWidth from "../../utils/getTextWidth";
-
 export default function WordsFading({ words }) {
   const WORDS_ARRAY = [];
   words.forEach((word, i) => {
     WORDS_ARRAY.push({ id: i, text: word });
-  });
-
-  const MAX_WORD_PIXEL_LENGTH = Number.NEGATIVE_INFINITY;
-
-  words.forEach((word) => {
-    const WORD_PIXEL_LENGTH = getTextWidth(word, "bold 14px verdana");
-    console.log(WORD_PIXEL_LENGTH);
   });
 
   // subtitle keywords loop

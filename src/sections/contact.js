@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import useDarkMode from "use-dark-mode";
+import Zoom from "react-reveal/Zoom";
 
 import {
   Contained,
@@ -12,7 +13,7 @@ import {
 import Heading from "../components/UI/heading";
 import Social from "../components/UI/social";
 
-const Contact = () => {
+export default function Contact() {
   const { value: darkMode } = useDarkMode(false);
   const { darkLogo, lightLogo } = useStaticQuery(graphql`
     query {
@@ -56,7 +57,7 @@ const Contact = () => {
       </Contained>
     </StyledSection>
   );
-};
+}
 
 const LogoImage = styled(Img)`
   width: 15%;
@@ -74,5 +75,3 @@ const CopyRight = styled.p`
   color: var(--text-highlight);
   text-transform: uppercase;
 `;
-
-export default Contact;
