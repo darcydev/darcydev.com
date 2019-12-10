@@ -43,6 +43,7 @@ export default function WordsFading({ words }) {
 
   return (
     <Wrapper>
+      <i style={{ visibility: "hidden" }}>self-taught</i>
       {wordsTransition.map(({ item, props, key }) => (
         <animated.span key={key} style={props}>
           {item.text}
@@ -64,7 +65,7 @@ const Wrapper = styled.div`
 
   & span {
     text-align: center;
-    width: 80%;
+    width: 100%;
   }
 
   /* @media ${(props) => props.theme.mediaQueries.large} {
