@@ -63,7 +63,7 @@ export default function WordsFading({ words }) {
 
 const Wrapper = styled.div`
   font-weight: 600;
-  width: 160px;
+  width: 110px;
   position: relative;
   display: inline-block;
   text-align: center;
@@ -76,15 +76,14 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
-  /*
   @media ${(props) => props.theme.mediaQueries.large} {
     width: 130px;
   }
-  
-   @media ${(props) => props.theme.mediaQueries.medium} {
+
+  @media ${(props) => props.theme.mediaQueries.medium} {
     width: 110px;
   }
-  
+
   @media ${(props) => props.theme.mediaQueries.small} {
     width: 95px;
   }
@@ -92,5 +91,4 @@ const Wrapper = styled.div`
   @media ${(props) => props.theme.mediaQueries.smallest} {
     width: 90px;
   }
-  */
 `;
