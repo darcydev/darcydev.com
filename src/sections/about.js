@@ -122,7 +122,6 @@ const About = () => {
       aboutMe: file(relativePath: { eq: "aboutMe.md" }) {
         childMarkdownRemark {
           frontmatter {
-            stack
             curriculum
             creativeCurriculum
           }
@@ -151,21 +150,25 @@ const About = () => {
             <AboutText>
               I’m <HighlightedText text="Darcy" />, a 29 years' old{" "}
               <HighlightedText text="developer" /> from Sydney, Australia. After
-              my graduating from Law School, I pursued a career in{" "}
+              my graduating from law school, I pursued a career in{" "}
               <HighlightedText text="corporate law" /> in London, UK. After two
               years as a lawyer, I felt stuck and decided to undertake a
-              secondment through work with an NGO in India working on technology
-              and app solutions for off-grid solar energy. The opportunities
-              exposed me to the power of technology to affect significant and
-              positive change in the community. I decided that it was time for a
-              change, so I started to{" "}
-              <HighlightedText text="study JavaScript" /> and within four months
-              was working as a <HighlightedText text="freelance developer" />.
-              Now, with over{" "}
-              <HighlightedText text="2+ years of commercial experience" /> as a
-              developer, I have have focused on front-end applications, but have
-              also built several full-stack and back-end applications! I have
-              also done a bunch of personal projects. I am always seeking to{" "}
+              secondment to work with an NGO in providing technology solutions
+              to implement off-grid solar energy in India. The opportunity
+              exposed me to the <b>power of technology</b> to affect significant
+              and positive change in the community. I decided that it was time
+              for a change, so I started to{" "}
+              <HighlightedText text="study JavaScript" /> before work and within
+              four months I had left a career in law and was working as a{" "}
+              <HighlightedText text="freelance developer" />.
+              <br />
+              <br />I have{" "}
+              <HighlightedText text="two+ years of commercial developer experience" />
+              ! Specifically, I have focused on{" "}
+              <HighlightedText text="front-end applications" /> but have also
+              worked with NodeJS, PHP, and Python.
+              <br />
+              <br />I am always seeking to{" "}
               <WordsFading words={["create", "build", "learn"]} /> more.
               <br />
               <br />
@@ -173,7 +176,11 @@ const About = () => {
               <StackTitle>
                 My current <HighlightedText text="current stack" /> is:
               </StackTitle>
-              <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
+              <Stack>
+                JAVASCRIPT - HTML5 - CSS3 - REACTJS - PHP - PYTHON - SASS -
+                WEBPACK - STYLED COMPONENTS - FIREBASE - MYSQL - BABEL - GRAPHQL
+                - GATSBY - NEXT.JS
+              </Stack>
             </AboutText>
           </Zoom>
           <Zoom>

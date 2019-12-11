@@ -4,6 +4,8 @@ import { animated, useTransition, config } from "react-spring";
 
 export default function WordsFading({ words }) {
   const WORDS_ARRAY = [];
+
+  // create the words hash
   words.forEach((word, i) => {
     WORDS_ARRAY.push({ id: i, text: word });
   });
@@ -55,7 +57,7 @@ export default function WordsFading({ words }) {
 
 const Wrapper = styled.div`
   font-weight: 600;
-  width: 160px;
+  width: 140px;
   position: relative;
   display: inline-block;
   text-align: center;
@@ -66,21 +68,5 @@ const Wrapper = styled.div`
   & span {
     text-align: center;
     width: 100%;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.large} {
-    width: 130px;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.medium} {
-    width: 110px;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.small} {
-    width: 95px;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.smallest} {
-    width: 90px;
   }
 `;
