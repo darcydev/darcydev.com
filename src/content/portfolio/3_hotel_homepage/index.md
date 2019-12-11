@@ -1,7 +1,7 @@
 ---
 title: "Hotel Homepage"
-live: "https://github.com/darcyprice/hotel"
-source: "https://hotel-homepage.netlify.com"
+live: "https://hotel-homepage.netlify.com"
+source: "https://github.com/darcyprice/hotel"
 stack: "React - React Hooks - Context API - Contentful"
 image: "react_hotel.png"
 ---

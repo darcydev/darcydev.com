@@ -1,7 +1,7 @@
 ---
 title: "Darcy Portfolio"
 live: "https://darcyeprice.com"
-source: "https://github.com/darcyprice/darcyeprice.com"
+source: "https://github.com/darcyprice/portfolio"
 stack: "React - Gatsby - Styled Components"
 image: "portfolio.png"
 ---
