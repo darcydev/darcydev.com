@@ -92,7 +92,6 @@ const Home = () => {
 
   return (
     <StyledSection fullHeight id="header">
-      {/* <BackgroundLogo /> */}
       <Contained>
         <Wrapper>
           <SmallWrapper>
