@@ -188,7 +188,7 @@ const About = () => {
                 solid
                 target="_blank"
                 rel="noreferrer"
-                href={`${siteUrl.siteMetadata.siteUrl}/${aboutMe.childMarkdownRemark.frontmatter.creativeCurriculum}`}
+                href={`https://docs.google.com/document/export?format=pdf&id=1sGoUUV4eUpk1fxexsNlnng6BRHblLCgbvwW-jJyT2NQ`}
               >
                 <StyledIcon icon={faPaperPlane} />
                 Resume
