@@ -10,8 +10,8 @@ module.exports = {
       linkedin: "darcydev",
       youtube: "darcydev",
       facebook: "darcydev",
-      github: "darcyprice",
-      email: "darcyeprice@hotmail.com"
+      github: "darcydev",
+      email: "darcy@darcydev.com"
     },
     // name of the image for social website share, should be in static folder
     imageShare: `share.jpg`
