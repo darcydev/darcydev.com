@@ -6,7 +6,6 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { graphql, useStaticQuery } from "gatsby";
 import Zoom from "react-reveal/Zoom";
 
-import ScrollLink from "../components/utils/scrollLink";
 import Heading from "../components/UI/heading";
 import {
   Contained,

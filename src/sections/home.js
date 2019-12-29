@@ -8,7 +8,6 @@ import {
   StyledSection,
   Wrapper
 } from "../components/layout/elements";
-import BackgroundLogo from "../components/UI/backgroundLogo";
 import ScrollDown from "../components/UI/scrollDown";
 import Button from "../components/UI/button";
 import WordsFading from "../components/UI/wordsFading";

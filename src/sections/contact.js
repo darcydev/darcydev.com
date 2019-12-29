@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import useDarkMode from "use-dark-mode";
-import Zoom from "react-reveal/Zoom";
 
 import {
   Contained,
