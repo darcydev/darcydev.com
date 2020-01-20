@@ -1,17 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPaperPlane,
-  fabDev,
-  faTwitter,
-  faGithub,
-  faYoutube
-} from "@fortawesome/free-solid-svg-icons";
 import { Form, Icon } from "antd";
 
 import ButtonLink from "../components/UI/buttonLink";
-import Social from "../components/UI/social";
 import ContactForm from "../components/dataEntry/Forms/ContactForm";
 
 export default function SocialLinks({ linkContent = defaultLinkContent }) {
@@ -25,13 +17,13 @@ export default function SocialLinks({ linkContent = defaultLinkContent }) {
 
   return (
     <Container>
-      <FlexRow>
+      <FlexCol>
         <ButtonLink solid target="_blank" rel="noreferrer" href={undefined}>
-          <StyledButtonIcon icon={faPaperPlane} />
-          Resume
+          <Icon type="download" /> Resume
         </ButtonLink>
-      </FlexRow>
-      <FlexRow>{LINK_MARKUP}</FlexRow>
+        <FlexRow>{LINK_MARKUP}</FlexRow>
+      </FlexCol>
+      <FlexRow></FlexRow>
       <FlexRow>
         <WrappedContactForm />
       </FlexRow>
@@ -40,26 +32,26 @@ export default function SocialLinks({ linkContent = defaultLinkContent }) {
 }
 
 // STYLES
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+
+  @media ${(props) => props.theme.mediaQueries.medium} {
+    flex-direction: column;
+  }
+`;
+
+const FlexCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+`;
 
 const FlexRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5rem;
-
-  @media ${(props) => props.theme.mediaQueries.medium} {
-    margin-bottom: 3rem;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.small} {
-    margin-bottom: 2rem;
-  }
-`;
-
-const StyledButtonIcon = styled(FontAwesomeIcon)`
-  color: inherit;
-  margin-right: 0.5rem;
+  margin: 1rem 0;
 `;
 
 const StyledLink = styled.a`

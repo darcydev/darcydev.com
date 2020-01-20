@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { animated } from 'react-spring';
+import React from "react";
+import styled from "styled-components";
+import { animated } from "react-spring";
 
 const StyledButton = styled(animated.button)`
   outline: none;
@@ -29,11 +29,11 @@ const StyledButton = styled(animated.button)`
     box-shadow: 0 3px 10px var(--shadow-btn);
   }
 
-  @media ${props => props.theme.mediaQueries.medium} {
+  @media ${(props) => props.theme.mediaQueries.medium} {
     padding: 1.5rem 3.5rem;
   }
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     padding: 1.3rem 3.2rem;
   }
 `;

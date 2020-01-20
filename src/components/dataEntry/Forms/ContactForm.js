@@ -7,18 +7,34 @@ import SimpleButton from "../../UI/button";
 const { TextArea } = Input;
 
 export default class ContactForm extends Component {
+  state = {
+    success: false
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
+        // TODO: send email
+
+        this.setState({ success: true });
       }
     });
   };
 
   render() {
+    console.log(this.state);
+
     const { getFieldDecorator } = this.props.form;
+    const { success } = this.state;
+
+    const BUTTON_MARKUP = success ? (
+      <Icon type="check" />
+    ) : (
+      <SimpleButton style={{ textAlign: "center" }}>Send</SimpleButton>
+    );
 
     return (
       <Container>
@@ -42,9 +58,7 @@ export default class ContactForm extends Component {
               rules: [{ required: true, message: "What's your message?" }]
             })(<TextArea placeholder="Message" rows={8} />)}
           </Form.Item>
-          <Form.Item>
-            <SimpleButton style={{ textAlign: "center" }}>Send</SimpleButton>
-          </Form.Item>
+          <Form.Item>{BUTTON_MARKUP}</Form.Item>
         </Form>
       </Container>
     );
@@ -73,6 +87,11 @@ const Container = styled.div`
         font-family: inherit;
         padding: 10px 0 5px 0;
         border: none;
+      }
+
+      i {
+        font-size: 25px;
+        color: #007c00;
       }
     }
   }
