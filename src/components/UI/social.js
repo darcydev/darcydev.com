@@ -31,7 +31,7 @@ export default function Social() {
   `);
 
   return (
-    <>
+    <Container>
       <Email href={`mailto:${site.siteMetadata.social.email}`}>
         {site.siteMetadata.social.email}
       </Email>
@@ -44,7 +44,7 @@ export default function Social() {
         >
           <StyledIcon icon={faGithub} />
         </StyledLink>
-        {/*         <StyledLink
+        <StyledLink
           rel="noreferrer"
           target="_blank"
           aria-label="Linkedin"
@@ -83,11 +83,13 @@ export default function Social() {
           href={`https://www.facebook.com/${site.siteMetadata.social.facebook}`}
         >
           <StyledIcon icon={faFacebookF} />
-        </StyledLink> */}
+        </StyledLink>
       </SocialWrapper>
-    </>
+    </Container>
   );
 }
+
+const Container = styled.div``;
 
 const Email = styled.a`
   color: var(--text-highlight);

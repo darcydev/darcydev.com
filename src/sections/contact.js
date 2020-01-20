@@ -11,6 +11,7 @@ import {
 } from "../components/layout/elements";
 import Heading from "../components/UI/heading";
 import Social from "../components/UI/social";
+import SocialLinks from "./SocialLinks";
 
 export default function Contact() {
   const { value: darkMode } = useDarkMode(false);
@@ -47,7 +48,7 @@ export default function Contact() {
             title="Contact me"
             subtitle="If you want to <span>talk</span>, you can <span>find me</span> at:"
           />
-          <Social />
+          <SocialLinks />
           {LOGO_MARKUP}
           <CopyRight>
             Copyright © {new Date().getFullYear()}, Darcy Price

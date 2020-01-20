@@ -1,9 +1,6 @@
 import React from "react";
 import rehypeReact from "rehype-react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { graphql, useStaticQuery } from "gatsby";
 import Zoom from "react-reveal/Zoom";
 
 import Heading from "../components/UI/heading";
@@ -12,9 +9,10 @@ import {
   StyledSection,
   Wrapper
 } from "../components/layout/elements";
-import ButtonLink from "../components/UI/buttonLink";
 import WordsFading from "../components/UI/wordsFading";
 import HighlightedText from "../components/UI/HighlightedText";
+
+import SocialLinks from "./SocialLinks";
 
 const AboutText = styled.div`
   color: var(--text);
@@ -93,48 +91,7 @@ const Stack = styled.p`
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  color: inherit;
-  margin-right: 0.5rem;
-`;
-
-const ButtonsWrapper = styled.div`
-  display: flex;
-
-  & a:first-of-type {
-    margin-right: 3rem;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.medium} {
-    justify-content: space-around;
-    width: 100%;
-
-    & a:first-of-type {
-      margin-right: 0rem;
-    }
-  }
-`;
-
 const About = () => {
-  const { aboutMe, siteUrl } = useStaticQuery(graphql`
-    query {
-      aboutMe: file(relativePath: { eq: "aboutMe.md" }) {
-        childMarkdownRemark {
-          frontmatter {
-            curriculum
-            creativeCurriculum
-          }
-          htmlAst
-        }
-      }
-      siteUrl: site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `);
-
   return (
     <StyledSection id="about-me">
       <Contained>
@@ -177,23 +134,13 @@ const About = () => {
               </StackTitle>
               <Stack>
                 JAVASCRIPT - HTML5 - CSS3 - REACTJS - PHP - PYTHON - SASS -
-                WEBPACK - STYLED COMPONENTS - FIREBASE - MYSQL - BABEL - GRAPHQL
-                - GATSBY - NEXT.JS
+                WEBPACK - STYLED COMPONENTS - AWS - FIREBASE - MYSQL - BABEL -
+                GRAPHQL - GATSBY - NEXT.JS
               </Stack>
             </AboutText>
           </Zoom>
           <Zoom>
-            <ButtonsWrapper>
-              <ButtonLink
-                solid
-                target="_blank"
-                rel="noreferrer"
-                href={`https://docs.google.com/document/export?format=pdf&id=1sGoUUV4eUpk1fxexsNlnng6BRHblLCgbvwW-jJyT2NQ`}
-              >
-                <StyledIcon icon={faPaperPlane} />
-                Resume
-              </ButtonLink>
-            </ButtonsWrapper>
+            <SocialLinks />
           </Zoom>
         </Wrapper>
       </Contained>
