@@ -134,8 +134,8 @@ const About = () => {
               </StackTitle>
               <Stack>
                 JAVASCRIPT - HTML5 - CSS3 - REACTJS - PHP - PYTHON - SASS -
-                WEBPACK - STYLED COMPONENTS - AWS - FIREBASE - MYSQL - BABEL -
-                GRAPHQL - GATSBY - NEXT.JS
+                WORDPRESS - DRUPAL WEBPACK - STYLED COMPONENTS - AWS - FIREBASE
+                - MYSQL - BABEL - GRAPHQL - GATSBY - NEXT.JS
               </Stack>
             </AboutText>
           </Zoom>

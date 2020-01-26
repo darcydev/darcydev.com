@@ -8,6 +8,7 @@ const { TextArea } = Input;
 
 export default class ContactForm extends Component {
   state = {
+    loading: false,
     success: false
   };
 
@@ -25,8 +26,6 @@ export default class ContactForm extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     const { getFieldDecorator } = this.props.form;
     const { success } = this.state;
 
@@ -51,7 +50,7 @@ export default class ContactForm extends Component {
                   message: "Please enter a valid e-mail!"
                 }
               ]
-            })(<Input size="large" placeholder="Email" />)}
+            })(<Input placeholder="Email" />)}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("message", {

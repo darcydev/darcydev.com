@@ -1,15 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { Form } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Form, Icon } from "antd";
+import { faFileDownload } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faTwitter, faDev } from "@fortawesome/free-brands-svg-icons";
 
 import ButtonLink from "../components/UI/buttonLink";
 import ContactForm from "../components/dataEntry/Forms/ContactForm";
 
+const DOC_ID = "1sGoUUV4eUpk1fxexsNlnng6BRHblLCgbvwW-jJyT2NQ";
+const FORMAT = "format=pdf";
+const DOWNLOAD_LINK = `https://docs.google.com/document/d/${DOC_ID}/export?${FORMAT}`;
+
 export default function SocialLinks({ linkContent = defaultLinkContent }) {
-  const LINK_MARKUP = linkContent.map((v, i) => (
+  const LINK_MARKUP = linkContent.map((v) => (
     <StyledLink key={v.title} rel="noreferrer" target="_blank" href={v.href}>
-      {v.icon}
+      <StyledIcon>{v.icon}</StyledIcon>
     </StyledLink>
   ));
 
@@ -18,8 +24,15 @@ export default function SocialLinks({ linkContent = defaultLinkContent }) {
   return (
     <Container>
       <FlexCol>
-        <ButtonLink solid target="_blank" rel="noreferrer" href={undefined}>
-          <Icon type="download" /> Resume
+        <ButtonLink
+          solid
+          target="_blank"
+          rel="noreferrer"
+          href={DOWNLOAD_LINK}
+          download
+        >
+          <FontAwesomeIcon icon={faFileDownload} />
+          <span style={{ paddingLeft: "5px" }}>Resume</span>
         </ButtonLink>
         <FlexRow>{LINK_MARKUP}</FlexRow>
       </FlexCol>
@@ -97,13 +110,16 @@ const StyledLink = styled.a`
   }
 `;
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  color: var(--text-highlight);
+const StyledIcon = styled.div`
   font-size: 2.2rem;
   transition: color 0.2s ease-out;
 
   ${StyledLink}:hover & {
     color: var(--background);
+  }
+
+  svg {
+    color: var(--text-highlight);
   }
 
   @media ${(props) => props.theme.mediaQueries.medium} {
@@ -116,6 +132,10 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
   @media ${(props) => props.theme.mediaQueries.smaller} {
     font-size: 1.6rem;
+
+    svg {
+      height: 20px;
+    }
   }
 `;
 
@@ -124,23 +144,16 @@ const defaultLinkContent = [
   {
     title: "Github",
     href: "https://github.com/darcydev",
-    icon: (
-      <img
-        src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
-        alt="Darcy's DEV Profile"
-        height="25"
-        width="25"
-      />
-    )
+    icon: <FontAwesomeIcon icon={faDev} />
   },
   {
     title: "Dev.to",
     href: "https://dev.to/darcydev",
-    icon: <Icon type="github" />
+    icon: <FontAwesomeIcon icon={faGithub} />
   },
   {
     title: "Twitter",
     href: "https://twitter.com/_darcy_dev",
-    icon: <Icon type="twitter" />
+    icon: <FontAwesomeIcon icon={faTwitter} />
   }
 ];
