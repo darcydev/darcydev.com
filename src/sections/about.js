@@ -119,10 +119,9 @@ const About = () => {
               <HighlightedText text="freelance developer" />.
               <br />
               <br />I have{" "}
-              <HighlightedText text="two+ years of commercial developer experience" />
+              <HighlightedText text="several years of commercial developer experience" />
               ! Specifically, I have focused on{" "}
-              <HighlightedText text="front-end applications" /> but have also
-              worked with NodeJS, PHP, and Python.
+              <HighlightedText text="fullstack development" />.
               <br />
               <br />I am always seeking to{" "}
               <WordsFading words={["create", "build", "learn"]} /> more.
@@ -133,9 +132,9 @@ const About = () => {
                 My current <HighlightedText text="current stack" /> is:
               </StackTitle>
               <Stack>
-                JAVASCRIPT - HTML5 - CSS3 - REACTJS - PHP - PYTHON - SASS -
-                WORDPRESS - DRUPAL WEBPACK - STYLED COMPONENTS - AWS - FIREBASE
-                - MYSQL - BABEL - GRAPHQL - GATSBY - NEXT.JS
+                JAVASCRIPT - TYPESCRIPT - HTML5 - CSS3 - REACTJS - PHP - SASS -
+                WORDPRESS - DRUPAL - WEBPACK - STYLED COMPONENTS - AWS
+                - MYSQL - BABEL - GRAPHQL - GATSBY - NEXTJS
               </Stack>
             </AboutText>
           </Zoom>
