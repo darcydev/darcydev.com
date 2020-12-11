@@ -5,13 +5,11 @@ import Layout from '../components/layout/layout';
 // Sections
 import Home from '../sections/home';
 import About from '../sections/about';
-import Contact from '../sections/contact';
 
 const IndexPage = () => (
 	<Layout>
 		<Home />
 		<About />
-		<Contact />
 	</Layout>
 );
 
