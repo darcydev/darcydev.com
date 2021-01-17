@@ -1,27 +1,21 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
+import Layout from '../components/Layout';
+import { GlobalStyles } from '../styles';
 
-const theme = {
-	colors: {
-		primaryBlue: '#0070f3',
-	},
-};
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
 	return (
-		<>
-			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
-			</ThemeProvider>
-		</>
+		<QueryClientProvider client={queryClient}>
+			<Hydrate state={pageProps.dehydratedState}>
+				<GlobalStyles />
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
+			</Hydrate>
+		</QueryClientProvider>
 	);
 }
 
