@@ -9,7 +9,7 @@ export default function Home() {
 		<>
 			<StyledHero>
 				<div className='content'>
-					<h1>Hello, I'm Darcy Price</h1>
+					<h1>Hello, I'm Darcy Price!</h1>
 					<h2>Full Stack Developer</h2>
 				</div>
 			</StyledHero>
